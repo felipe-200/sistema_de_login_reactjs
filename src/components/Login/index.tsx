@@ -22,7 +22,6 @@ export const Login = () => {
       alert('Usuario ou senha incorreta')
       return
     }
-    alert('Logado com sucesso !')
     setToken(response.data?.token)
     navigate('/app')
   }
@@ -30,7 +29,7 @@ export const Login = () => {
   return (
     <Container>
       <div>
-        <h2> Sign-In </h2>
+        <h2> Welcome </h2>
         <hr />
         <form onSubmit={(event) => event.preventDefault()}>
 
