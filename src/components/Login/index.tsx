@@ -62,8 +62,6 @@ export const Login = () => {
 
         <Link to="#"> Sign-up </Link>
       </div>
-
-
     </Container>
   )
 }

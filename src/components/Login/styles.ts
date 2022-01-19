@@ -1,18 +1,23 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  width: 350px;
-  height: 350px;
+  width: 100%;
+  height: 100vh;
 
-  background: #e5e5e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   border-radius: 10px;
 
-    div {
+  div {
+      background: #e5e5e5;
+      width: 350px;
+      height: 350px;
+      
       padding: 15px;
 
-      width: 100%;
-      height: 100%;
+      
 
       display: flex;
       flex-direction: column;
