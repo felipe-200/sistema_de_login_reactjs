@@ -26,6 +26,7 @@ export const DropdownContent = styled.div`
   width: 120px;
   flex-direction: column;
   /* align-items: center; */
+  box-shadow: 3px 5px 10px 10px rgba(28, 28, 28, 0.5) ;
 
   span {
     display: block;
