@@ -5,12 +5,12 @@ export const Button = styled.button`
 
   font-size: 16px;
   
-  background: ${props => props.color ? props.color : '#124559'};
+  background: ${props => props.color ? props.color : props.theme.colors.primary};
   
   border: 0;
-  border-radius: 3px ;
+  border-radius: 3px;
 
-  color: #f5f5f5;
+  color: ${props => props.theme.colors.textSecondary};
 
   cursor: pointer;
 

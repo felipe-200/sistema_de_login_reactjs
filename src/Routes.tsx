@@ -1,9 +1,6 @@
-import {
-  Routes as Routers,
-  Route
-} from "react-router-dom";
-import { App } from "./components/App";
-import { Login } from "./components/Login";
+import { useRoutes } from "react-router-dom";
+import { ListClients } from "./Pages/ListClients"
+import { Login } from "./Pages/Login";
 
 import { PrivateRoute } from "./utils/PrivateRoute";
 
@@ -16,15 +13,26 @@ const NotFound = () => {
 }
 
 export const Routes = () => {
-  return (
-    <Routers>
-      <Route path="/" element={<Login />} />
+  const routes = useRoutes([
+    {
+      path: "/",
+      element: <Login />,
+    },
+    {
+      path: '/app',
+      element: <PrivateRoute />,
+      children: [
+        {
+          path: "/app",
+          element: <ListClients />
+        },
+      ]
+    },
+    {
+      path: "*",
+      element: <NotFound />
+    }
+  ])
 
-      <Route path='/app' element={<PrivateRoute />}>
-        <Route path='/app' element={<App />} />
-      </Route>
-
-      <Route path="*" element={<NotFound />} />
-    </Routers>
-  )
+  return routes
 }

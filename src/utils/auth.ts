@@ -1,10 +1,10 @@
 import jwt from 'jwt-decode'
 
-export const setToken = (token: string) => {
-  localStorage.setItem('TOKEN_KEY', token)
+export const setItem = (key: string, token: string) => {
+  localStorage.setItem(key, token)
 }
-export const getToken = (): string => {
-  return localStorage?.getItem('TOKEN_KEY') as string
+export const getItem = (key: string): string => {
+  return localStorage?.getItem(key) as string
 }
 
 export const isExpiredToken = () => {
@@ -13,7 +13,7 @@ export const isExpiredToken = () => {
     exp: number,
     iat: number
   }
-  const token = getToken()
+  const token = getItem('TOKEN_KEY')
   if (token !== null) {
     const decoded: decodedPorps = jwt(token)
     const date = new Date(0)
@@ -25,4 +25,5 @@ export const isExpiredToken = () => {
 
 export const exit = () => {
   localStorage.removeItem('TOKEN_KEY')
+  localStorage.removeItem('USER')
 }

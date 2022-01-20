@@ -10,7 +10,7 @@ export const Container = styled.div`
 
   
   div {
-    background: #e5e5e5;
+    background: ${props => props.theme.colors.backgroundTertiary};
     width: 350px;
     height: 350px;
       
@@ -26,7 +26,7 @@ export const Container = styled.div`
       h2 {
         text-align: center;
         margin-bottom: 10px;
-        color: #124559;
+        color: ${props => props.theme.colors.primary};
       }
 
       hr {
@@ -40,11 +40,11 @@ export const Container = styled.div`
 
         label {
           margin-bottom: 5px;
-          font-size: 14px;
+          /* font-size: 14px; */
         }
 
         input {
-          margin-bottom: 10px;
+          margin-bottom: 15px;
         }
       }
 
@@ -53,7 +53,7 @@ export const Container = styled.div`
         margin-top: 10px;
         font-size: 14px;
         text-align: right;
-        color: #124559;
+        color: ${props => props.theme.colors.primary};
 
         &:hover{
           opacity: 0.6;

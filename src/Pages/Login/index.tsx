@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import api from '../../utils/api'
-import { setToken } from '../../utils/auth'
-import { Button } from "../Button"
-import { Input } from "../Input"
+import { setItem } from '../../utils/auth'
+import { Button } from "../../components/Button"
+import { Input } from "../../components/Input"
 import { Container } from "./styles"
 import { Link, useNavigate } from 'react-router-dom'
 
@@ -22,7 +22,8 @@ export const Login = () => {
       alert('Usuario ou senha incorreta')
       return
     }
-    setToken(response.data?.token)
+    setItem('TOKEN_KEY', response.data?.token)
+    setItem('CLIENT', response.data?.user.username)
     navigate('/app')
   }
 

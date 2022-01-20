@@ -1,7 +1,8 @@
 import { isExpiredToken } from './auth'
-import { Navigate, Outlet } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
+import { App } from '../Pages/App'
 
 export const PrivateRoute = () => {
   const isExpired = isExpiredToken()
-  return isExpired ? <Navigate to="/" /> : <Outlet />
+  return isExpired ? <Navigate to="/" /> : <App />
 }

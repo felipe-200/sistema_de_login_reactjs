@@ -1,17 +1,20 @@
 import { useState } from 'react'
 import { DropdownContainer, DropdownContent } from './styles'
-import { ArrowUp } from '../Icons/ArrowUp'
-import { ArrowDown } from '../Icons/ArrowDown'
 import { exit } from '../../utils/auth'
+import { getItem } from '../../utils/auth'
 import { useNavigate } from 'react-router-dom'
 
-interface DropdownProps {
-  username?: string
-}
-
-export const Dropdown = ({ username }: DropdownProps) => {
+export const Dropdown = () => {
   const navigate = useNavigate()
   const [isOpen, setIsOpen] = useState<boolean>(false)
+  const username = getItem('CLIENT')
+
+  const client = () => {
+    const client = username.split('')
+    return {
+      initialUser: client[0].toUpperCase()
+    }
+  }
 
   const loggout = () => {
     exit()
@@ -20,10 +23,10 @@ export const Dropdown = ({ username }: DropdownProps) => {
 
   return (
     <DropdownContainer>
-      <span onClick={() => setIsOpen(!isOpen)}> {username || 'Profile'} <span> {isOpen ? ArrowUp : ArrowDown} </span>  </span>
+      <strong onClick={() => setIsOpen(!isOpen)}> {client().initialUser}  </strong>
       {isOpen ? (
         <DropdownContent>
-          <span> Edit Profile </span>
+          <span> {username} </span>
           <span onClick={loggout} > Exit </span>
         </DropdownContent>
       ) : false}
